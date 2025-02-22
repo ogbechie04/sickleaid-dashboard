@@ -1,7 +1,19 @@
-import React from "react";
+'use client';
+
+import React, { useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Onboarding1: React.FC = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.push("/onboarding/step2");
+    }, 3000);
+    return () => clearTimeout(timer);
+    })
+
   return (
     <div className="w-full h-screen flex items-center justify-center">
       {/* -------- onboarding image -------- */}
