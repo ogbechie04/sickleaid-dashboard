@@ -1,7 +1,12 @@
+'use client';
+
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Onboarding2: React.FC = () => {
+  const router = useRouter();
+
   return (
     <div className="w-full h-screen flex items-center justify-between">
       {/* -------- first half -------- */}
@@ -16,7 +21,9 @@ const Onboarding2: React.FC = () => {
         <p className="self-center justify-center text-[32px] font-bold">
           Your Health, Our Priority !!
         </p>
-        <button className="self-end py-[1.125rem] px-9 bg-primaryGreen rounded-[0.625rem] text-white text-2xl">Next</button>
+        <button className="self-end py-[1.125rem] px-9 bg-primaryGreen rounded-[0.625rem] text-white text-2xl" onClick={() => router.push('/auth/signup')}>
+          Next
+        </button>
       </div>
       {/* -------- second half -------- */}
       <div className="h-full w-full flex justify-end flex-1">

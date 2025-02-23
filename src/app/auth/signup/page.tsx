@@ -113,10 +113,12 @@ const SignUp: React.FC = () => {
                 <FiEyeOff size={20} color="#332E0E" />
               )}
             </button>
-            {/* -------- sign up submit button -------- */}
           </div>
         </div>
-        <button className="w-full bg-primaryGreen p-2.5 text-xl text-[#FFFADE] font-bold rounded-[6px] flex justify-center items-center focus:outline-none autofill:bg-none">Sign Up</button>
+        {/* -------- sign up submit button -------- */}
+        <button className="w-full bg-primaryGreen p-2.5 text-xl text-[#FFFADE] font-bold rounded-[6px] flex justify-center items-center focus:outline-none autofill:bg-none">
+          Sign Up
+        </button>
       </form>
     </div>
   );
