@@ -10,6 +10,7 @@ export default {
     extend: {
       colors: {
         primaryGreen: "var(--primary-green)",
+        danger: "var(--danger)",
       },
       fontFamily: {
         Inter: "var(--font-inter)",

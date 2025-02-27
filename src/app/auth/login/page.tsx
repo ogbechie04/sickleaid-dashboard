@@ -2,8 +2,14 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { FiEye, FiEyeOff } from "react-icons/fi";
+import { FiEye, FiEyeOff, FiAlertCircle } from "react-icons/fi";
 import { useRouter } from "next/navigation";
+import {
+  loginSchema,
+  loginFormData,
+} from "../../../../features/auth/loginSchema";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const Login: React.FC = () => {
   const router = useRouter();
@@ -11,10 +17,26 @@ const Login: React.FC = () => {
   const handleShowPassword = () => {
     setShowPassword((prev) => !prev);
   };
+
+  //   -------- schema validation --------
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<loginFormData>({
+    resolver: zodResolver(loginSchema),
+    mode: "onSubmit",
+  });
+
+  const submitData = (data: loginFormData) => {
+    console.log("submitted data:", data);
+    router.push("/");
+  };
+
   return (
-    <div className="font-Inter flex justify-between">
+    <div className="font-Inter flex justify-between h-fit">
       {/* -------- left side of the page -------- */}
-      <div className="flex flex-col gap-12 w-full pl-8 pr-[1.875rem] pt-[2.6875rem] pb-[7.5rem] max-w-[53%]">
+      <div className="flex flex-col gap-12 w-full pl-8 pr-[1.875rem] pt-[2.6875rem] pb-[7.5rem] ">
         {/* -------- sickle aid logo --------- */}
         <div className="p-2.5">
           <Image
@@ -29,7 +51,7 @@ const Login: React.FC = () => {
           <h1 className="text-5xl font-bold text-primaryGreen font-Inter p-2.5">
             Welcome Back
           </h1>
-          <form action="" className="w-full flex flex-col gap-6">
+          <form action="" className="w-full flex flex-col gap-6" onSubmit={handleSubmit(submitData)}>
             {/* -------- hospital email -------- */}
             <div className="font-Inter flex flex-col gap-2 w-full">
               <label
@@ -41,10 +63,23 @@ const Login: React.FC = () => {
               <input
                 type="text"
                 id="hospital-email"
-                name="hospital-email"
-                className="border border-solid border-[#D9D9D9] rounded-md h-[3.75rem] w-full py-2.5 px-5 focus:outline-none autofill:bg-none"
+                className={`border border-solid rounded-md h-[3.75rem] w-full py-2.5 px-5 focus:outline-none autofill:bg-none ${
+                  errors.hospitalEmail
+                    ? "border-[var(--danger)] text-[var(--danger)]"
+                    : "border-[#D9D9D9] text-black"
+                }`}
+                {...register("hospitalEmail")}
               />
+              {errors.hospitalEmail && (
+                <div className="flex gap-[7px] text-[var(--danger)] items-center">
+                  <FiAlertCircle size={"18px"} />
+                  <p className="text-sm leading-normal">
+                    {errors.hospitalEmail.message}
+                  </p>
+                </div>
+              )}
             </div>
+
             {/* -------- hospital password -------- */}
             <div className="font-Inter flex flex-col gap-2">
               <label
@@ -57,8 +92,12 @@ const Login: React.FC = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   id="hospital-password"
-                  name="hospital-password"
-                  className="border border-solid border-[#D9D9D9] rounded-md h-[3.75rem] w-full py-2.5 pl-5 pr-12 focus:outline-none autofill:bg-none"
+                  className={`border border-solid rounded-md h-[3.75rem] w-full py-2.5 pl-5 pr-12 focus:outline-none autofill:bg-none ${
+                    errors.hospitalPassword
+                      ? "border-[var(--danger)] text-[var(--danger)]"
+                      : "border-[#D9D9D9] text-black"
+                  }`}
+                  {...register("hospitalPassword")}
                 />
                 <button
                   type="button"
@@ -72,32 +111,45 @@ const Login: React.FC = () => {
                   )}
                 </button>
               </div>
+              {errors.hospitalPassword && (
+                <div className="flex gap-[7px] text-[var(--danger)] items-center">
+                  <FiAlertCircle size={"18px"} />
+                  <p className="text-sm leading-normal">
+                    {errors.hospitalPassword.message}
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* -------- forgot password -------- */}
-            <p className="text-xl font-medium">
+            <p className="text-xl font-medium mt-[3.0625rem]">
               Forgot password?&nbsp;
-              <span className="text-primaryGreen cursor-pointer">
+              <span
+                className="text-primaryGreen cursor-pointer"
+                onClick={() => router.push("/auth/reset-password")}
+              >
                 Reset here
               </span>
             </p>
 
             {/* -------- login submit button -------- */}
-            <button className="w-full bg-primaryGreen p-2.5 text-xl text-[#FFFADE] font-bold rounded-[6px] flex justify-center items-center focus:outline-none autofill:bg-none">
+            <button
+              className="w-full bg-primaryGreen p-2.5 text-xl mt-[1.8125rem] text-[#FFFADE] font-bold rounded-[6px] flex justify-center items-center"
+            >
               Login
             </button>
           </form>
         </div>
       </div>
       {/* -------- right image -------- */}
-      <div className="w-full h-full">
-        {/* <Image
+      <div className="w-full h-full max-h-[64rem] flex justify-end">
+        <Image
           src="/images/login-image.svg"
           alt="onboarding"
-          width={500}
+          width={800}
           height={400}
-          className="w-full h-fit"
-        /> */}
+          className="w-full h-full w-h-[64rem] self-end justify-end"
+        />
       </div>
     </div>
   );
