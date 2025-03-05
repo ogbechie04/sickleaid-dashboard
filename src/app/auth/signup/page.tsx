@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import {
   signUpSchema,
   signUpFormData,
-} from "../../../../features/auth/signUpSchema";
+} from "@features/auth/signUpSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -202,7 +202,7 @@ const SignUp: React.FC = () => {
         <p className="text-2xl font-Inter">
           Already have an account?{" "}
           <span
-            className="text-primaryGreen"
+            className="text-primaryGreen cursor-pointer"
             onClick={() => router.push("/auth/login")}
           >
             Login

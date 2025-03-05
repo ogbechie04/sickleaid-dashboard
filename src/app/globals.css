@@ -8,7 +8,13 @@
   --primary-green: #0B9444;
   --font-inter: 'Inter', sans-serif;
   --danger: #FF0F0F;
+  --background-yellow: #FFFADE;
 }
+
+body {
+  font-family: var(--font-inter);
+}
+
 
 /* Target autofilled input fields */
 input:-webkit-autofill {
@@ -32,10 +38,4 @@ input[type="checkbox"]:checked {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 } */
