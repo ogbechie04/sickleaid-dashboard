@@ -7,17 +7,35 @@
 :root {
   --primary-green: #0B9444;
   --font-inter: 'Inter', sans-serif;
+  --danger: #FF0F0F;
+  --background-yellow: #FFFADE;
 }
+
+body {
+  font-family: var(--font-inter);
+}
+
+
+/* Target autofilled input fields */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset; /* Change 'white' to your desired background color */
+  box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: inherit; /* Ensures the text color remains consistent */
+}
+
+input:-webkit-autofill::first-line {
+  font-family: inherit; /* Ensures autofilled text uses the same font */
+}
+
+input[type="checkbox"]:checked {
+    background-color: blue; /* Set background color when checked */
+    border: 1px solid blue; /* Adjust border when checked */
+  }
+
 
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 } */
