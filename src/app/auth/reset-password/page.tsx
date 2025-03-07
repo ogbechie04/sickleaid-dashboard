@@ -36,7 +36,7 @@ const ResetPassword: React.FC = () => {
 
   const submitData = (data: passwordResetFormData) => {
     console.log("submitted data:", data);
-    router.push("/");
+    router.push("/example");
   };
 
   return (

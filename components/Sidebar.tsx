@@ -10,7 +10,7 @@ const Sidebar = () => {
   return (
     <div className="w-full min-h-screen max-w-[10.125rem] flex flex-col bg-primaryGreen rounded-tr-[1.25rem] rounded-br-[1.25rem] gap-1 font-Inter">
       {/* -------- sickleaid logo -------- */}
-      <div className="w-full h-full px-5 py-[1.875rem]">
+      <div className="w-full px-5 py-[1.875rem]">
         <Image
           src={"/logos/dashboard-logo.svg"}
           alt="SickleAid"
@@ -18,7 +18,7 @@ const Sidebar = () => {
           height={60}
           layout="intrinsic"
           className="cursor-pointer"
-          onClick={() => router.push("/")}
+          onClick={() => router.push("/example")}
         />
       </div>
       {/* -------- sidebar menu options -------- */}
@@ -26,7 +26,7 @@ const Sidebar = () => {
         {/* -------- home -------- */}
         <div
           className="flex items-center justify-start px-5 py-2.5 border-y border-t-2 border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]"
-          onClick={() => router.push("/")}
+          onClick={() => router.push("/example")}
         >
           <Image
             src={"/icons/home-icon.svg"}

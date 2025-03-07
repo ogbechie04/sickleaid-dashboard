@@ -30,7 +30,7 @@ const Login: React.FC = () => {
 
   const submitData = (data: loginFormData) => {
     console.log("submitted data:", data);
-    router.push("/");
+    router.push("/example");
   };
 
   return (
