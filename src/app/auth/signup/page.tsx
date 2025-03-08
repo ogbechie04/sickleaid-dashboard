@@ -4,10 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { FiEye, FiEyeOff, FiAlertCircle } from "react-icons/fi";
 import { useRouter } from "next/navigation";
-import {
-  signUpSchema,
-  signUpFormData,
-} from "@features/auth/signUpSchema";
+import { signUpSchema, signUpFormData } from "@features/auth/signUpSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -51,24 +48,24 @@ const SignUp: React.FC = () => {
         />
       </div>
       {/* -------- right side -------- */}
-      <div className="w-full h-full justify-center max-w-[50%] flex flex-col gap-14">
+      <div className="w-full h-full justify-center items-center max-w-[50%] flex flex-col gap-14">
         {/* -------- signup form -------- */}
         <form
-          className="w-full h-full flex flex-col justify-center gap-6"
+          className="w-full h-full flex flex-col justify-center gap-6 max-w-[30rem]"
           onSubmit={handleSubmit(submitData)}
         >
           {/* -------- hospital name -------- */}
           <div className="font-Inter flex flex-col gap-2">
             <label
               htmlFor="hospital-name"
-              className="text-[#332EOE] font-bold text-2xl"
+              className="text-[#332EOE] font-bold text-base"
             >
               Healthcare Facility Name
             </label>
             <input
               type="text"
               id="hospital-name"
-              className={`border border-solid rounded-md h-[3.75rem] w-full py-2.5 px-5 focus:outline-none autofill:bg-none ${
+              className={`border border-solid rounded-md w-full py-2.5 px-5 focus:outline-none autofill:bg-none ${
                 errors.hospitalName
                   ? "border-[var(--danger)] text-[var(--danger)]"
                   : "border-[#D9D9D9] text-black"
@@ -88,14 +85,14 @@ const SignUp: React.FC = () => {
           <div className="font-Inter flex flex-col gap-2">
             <label
               htmlFor="hospital-email"
-              className="text-[#332EOE] font-bold text-2xl"
+              className="text-[#332EOE] font-bold text-base"
             >
               Email
             </label>
             <input
               type="text"
               id="hospital-email"
-              className={`border border-solid rounded-md h-[3.75rem] w-full py-2.5 px-5 focus:outline-none autofill:bg-none ${
+              className={`border border-solid rounded-md w-full py-2.5 px-5 focus:outline-none autofill:bg-none ${
                 errors.hospitalEmail
                   ? "border-[var(--danger)] text-[var(--danger)]"
                   : "border-[#D9D9D9] text-black"
@@ -115,7 +112,7 @@ const SignUp: React.FC = () => {
           <div className="font-Inter flex flex-col gap-2">
             <label
               htmlFor="hospital-password"
-              className="text-[#332EOE] font-bold text-2xl"
+              className="text-[#332EOE] font-bold text-base"
             >
               Password
             </label>
@@ -123,7 +120,7 @@ const SignUp: React.FC = () => {
               <input
                 type={showPassword ? "text" : "password"}
                 id="hospital-password"
-                className={`border border-solid rounded-md h-[3.75rem] w-full py-2.5 pl-5 pr-12 focus:outline-none autofill:bg-none ${
+                className={`border border-solid rounded-md w-full py-2.5 pl-5 pr-12 focus:outline-none autofill:bg-none ${
                   errors.hospitalPassword
                     ? "border-[var(--danger)] text-[var(--danger)]"
                     : "border-[#D9D9D9] text-black"
@@ -155,7 +152,7 @@ const SignUp: React.FC = () => {
           <div className="font-Inter flex flex-col gap-2">
             <label
               htmlFor="hospital-confirm-password"
-              className="text-[#332EOE] font-bold text-2xl"
+              className="text-[#332EOE] font-bold text-base"
             >
               Password
             </label>
@@ -163,7 +160,7 @@ const SignUp: React.FC = () => {
               <input
                 type={showConfirmPassword ? "text" : "password"}
                 id="hospital-confirm-password"
-                className={`border border-solid rounded-md h-[3.75rem] w-full py-2.5 pl-5 pr-12 focus:outline-none autofill:bg-none ${
+                className={`border border-solid rounded-md w-full py-2.5 pl-5 pr-12 focus:outline-none autofill:bg-none ${
                   errors.hospitalConfirmPassword
                     ? "border-[var(--danger)] text-[var(--danger)]"
                     : "border-[#D9D9D9] text-black"
@@ -193,16 +190,16 @@ const SignUp: React.FC = () => {
           </div>
           {/* -------- sign up submit button -------- */}
           <button
-            className="w-full bg-primaryGreen p-2.5 text-xl text-[#FFFADE] font-bold rounded-[6px] flex justify-center items-center focus:outline-none autofill:bg-none"
+            className="w-full bg-primaryGreen p-2.5 text-lg text-[#FFFADE] font-bold rounded-[6px] flex justify-center items-center focus:outline-none autofill:bg-none"
             type="submit"
           >
             Sign Up
           </button>
         </form>
-        <p className="text-2xl font-Inter">
+        <p className="text-base font-Inter">
           Already have an account?{" "}
           <span
-            className="text-primaryGreen cursor-pointer"
+            className="text-primaryGreen cursor-pointer font-bold"
             onClick={() => router.push("/auth/login")}
           >
             Login

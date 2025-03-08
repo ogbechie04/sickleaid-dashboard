@@ -51,24 +51,24 @@ const ResetPassword: React.FC = () => {
         />
       </div>
       {/* -------- right side -------- */}
-      <div className="w-full max-w-[50%] flex flex-col gap-14">
+      <div className="w-full max-w-[50%] flex flex-col items-center gap-14">
         {/* -------- signup form -------- */}
         <form
-          className="w-full flex flex-col gap-6"
+          className="w-full flex flex-col gap-6 max-w-[30rem]"
           onSubmit={handleSubmit(submitData)}
         >
           {/* -------- hospital email -------- */}
           <div className="font-Inter flex flex-col gap-2">
             <label
               htmlFor="hospital-email"
-              className="text-[#332EOE] font-bold text-2xl"
+              className="text-[#332EOE] font-bold text-base"
             >
               Email
             </label>
             <input
               type="text"
               id="hospital-email"
-              className={`border border-solid rounded-md h-[3.75rem] w-full py-2.5 px-5 focus:outline-none autofill:bg-none ${
+              className={`border border-solid rounded-md w-full py-2.5 px-5 focus:outline-none autofill:bg-none ${
                 errors.hospitalEmail
                   ? "border-[var(--danger)] text-[var(--danger)]"
                   : "border-[#D9D9D9] text-black"
@@ -89,7 +89,7 @@ const ResetPassword: React.FC = () => {
           <div className="font-Inter flex flex-col gap-2">
             <label
               htmlFor="hospital-new-password"
-              className="text-[#332EOE] font-bold text-2xl"
+              className="text-[#332EOE] font-bold text-base"
             >
               New Password
             </label>
@@ -97,7 +97,7 @@ const ResetPassword: React.FC = () => {
               <input
                 type={showNewPassword ? "text" : "password"}
                 id="hospital-new-password"
-                className={`border border-solid rounded-md h-[3.75rem] w-full py-2.5 pl-5 pr-12 focus:outline-none autofill:bg-none ${
+                className={`border border-solid rounded-md w-full py-2.5 pl-5 pr-12 focus:outline-none autofill:bg-none ${
                   errors.hospitalPassword
                     ? "border-[var(--danger)] text-[var(--danger)]"
                     : "border-[#D9D9D9] text-black"
@@ -130,7 +130,7 @@ const ResetPassword: React.FC = () => {
           <div className="font-Inter flex flex-col gap-2">
             <label
               htmlFor="hospital-confirm-password"
-              className="text-[#332EOE] font-bold text-2xl"
+              className="text-[#332EOE] font-bold text-base"
             >
               Confirm Password
             </label>
@@ -138,7 +138,7 @@ const ResetPassword: React.FC = () => {
               <input
                 type={showConfirmNewPassword ? "text" : "password"}
                 id="hospital-confirm-password"
-                className={`border border-solid rounded-md h-[3.75rem] w-full py-2.5 pl-5 pr-12 focus:outline-none autofill:bg-none ${
+                className={`border border-solid rounded-md w-full py-2.5 pl-5 pr-12 focus:outline-none autofill:bg-none ${
                   errors.hospitalConfirmPassword
                     ? "border-[var(--danger)] text-[var(--danger)]"
                     : "border-[#D9D9D9] text-black"

@@ -35,7 +35,7 @@ const Sidebar = () => {
             height={15}
             layout="intrinsic"
           />
-          <p className="font-bold text-backgroundYellow">Home</p>
+          <p className="font-bold text-backgroundYellow leading-[32px]">Home</p>
         </div>
         {/* -------- notification -------- */}
         <div
@@ -49,7 +49,7 @@ const Sidebar = () => {
             height={15}
             layout="intrinsic"
           />
-          <p className="font-bold text-backgroundYellow">Notification</p>
+          <p className="font-bold text-backgroundYellow leading-[32px]">Notification</p>
         </div>
         {/* -------- settings -------- */}
         <div
@@ -63,7 +63,7 @@ const Sidebar = () => {
             height={15}
             layout="intrinsic"
           />
-          <p className="font-bold text-backgroundYellow">Settings</p>
+          <p className="font-bold text-backgroundYellow leading-[32px]">Settings</p>
         </div>
         {/* -------- record -------- */}
         <div
@@ -77,7 +77,7 @@ const Sidebar = () => {
             height={15}
             layout="intrinsic"
           />
-          <p className="font-bold text-backgroundYellow">Record</p>
+          <p className="font-bold text-backgroundYellow leading-[32px]">Record</p>
         </div>
         {/* -------- contact -------- */}
         <div
@@ -91,7 +91,7 @@ const Sidebar = () => {
             height={15}
             layout="intrinsic"
           />
-          <p className="font-bold text-backgroundYellow">Contact</p>
+          <p className="font-bold text-backgroundYellow leading-[32px]">Contact</p>
         </div>
       </nav>
 
