@@ -5,7 +5,7 @@ const HospitalLayout = ({children}: {children: React.ReactNode}) => {
   return (
     <div className='w-full min-h-screen flex bg-white'>
         <Sidebar />
-        <div>
+        <div className='w-full'>
             {children}
         </div>
     </div>
