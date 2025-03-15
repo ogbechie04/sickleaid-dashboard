@@ -33,7 +33,7 @@ const SignUp: React.FC = () => {
 
   const submitData = (data: signUpFormData) => {
     console.log("submitted data:", data);
-    router.push("/example");
+    router.push("/[hospital_name]");
   };
 
   return (

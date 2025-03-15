@@ -5,9 +5,9 @@ import Image from "next/image";
 import { FiEye, FiEyeOff, FiAlertCircle } from "react-icons/fi";
 import { useRouter } from "next/navigation";
 import {
-  passwordResetSchema,
-  passwordResetFormData,
-} from "@features/auth/passwordResetSchema";
+  forgotPasswordSchema,
+  forgotPasswordFormData,
+} from "@features/auth/forgotPasswordSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -29,14 +29,14 @@ const ResetPassword: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<passwordResetFormData>({
-    resolver: zodResolver(passwordResetSchema),
+  } = useForm<forgotPasswordFormData>({
+    resolver: zodResolver(forgotPasswordSchema),
     mode: "onSubmit",
   });
 
-  const submitData = (data: passwordResetFormData) => {
+  const submitData = (data: forgotPasswordFormData) => {
     console.log("submitted data:", data);
-    router.push("/example");
+    router.push("/[hospital_name]");
   };
 
   return (

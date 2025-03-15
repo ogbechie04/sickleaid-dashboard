@@ -26,7 +26,7 @@ const Sidebar = () => {
         {/* -------- home -------- */}
         <div
           className="flex items-center justify-start px-5 py-2.5 border-y border-t-2 border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]"
-          onClick={() => router.push("/example")}
+          onClick={() => router.push("/[hospital_name]")}
         >
           <Image
             src={"/icons/home-icon.svg"}
@@ -54,7 +54,7 @@ const Sidebar = () => {
         {/* -------- settings -------- */}
         <div
           className="flex items-center justify-start px-5 py-2.5 border-y border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]"
-          onClick={() => router.push("/")}
+          onClick={() => router.push("/[hospital_name]/settings")}
         >
           <Image
             src={"/icons/settings-icon.svg"}
