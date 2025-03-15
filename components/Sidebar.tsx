@@ -26,7 +26,7 @@ const Sidebar = () => {
         {/* -------- home -------- */}
         <div
           className="flex items-center justify-start px-5 py-2.5 border-y border-t-2 border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]"
-          onClick={() => router.push("/example")}
+          onClick={() => router.push("/[hospital_name]")}
         >
           <Image
             src={"/icons/home-icon.svg"}
@@ -35,7 +35,7 @@ const Sidebar = () => {
             height={15}
             layout="intrinsic"
           />
-          <p className="font-bold text-backgroundYellow">Home</p>
+          <p className="font-bold text-backgroundYellow leading-[32px]">Home</p>
         </div>
         {/* -------- notification -------- */}
         <div
@@ -49,12 +49,12 @@ const Sidebar = () => {
             height={15}
             layout="intrinsic"
           />
-          <p className="font-bold text-backgroundYellow">Notification</p>
+          <p className="font-bold text-backgroundYellow leading-[32px]">Notification</p>
         </div>
         {/* -------- settings -------- */}
         <div
           className="flex items-center justify-start px-5 py-2.5 border-y border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]"
-          onClick={() => router.push("/")}
+          onClick={() => router.push("/[hospital_name]/settings")}
         >
           <Image
             src={"/icons/settings-icon.svg"}
@@ -63,7 +63,7 @@ const Sidebar = () => {
             height={15}
             layout="intrinsic"
           />
-          <p className="font-bold text-backgroundYellow">Settings</p>
+          <p className="font-bold text-backgroundYellow leading-[32px]">Settings</p>
         </div>
         {/* -------- record -------- */}
         <div
@@ -77,7 +77,7 @@ const Sidebar = () => {
             height={15}
             layout="intrinsic"
           />
-          <p className="font-bold text-backgroundYellow">Record</p>
+          <p className="font-bold text-backgroundYellow leading-[32px]">Record</p>
         </div>
         {/* -------- contact -------- */}
         <div
@@ -91,7 +91,7 @@ const Sidebar = () => {
             height={15}
             layout="intrinsic"
           />
-          <p className="font-bold text-backgroundYellow">Contact</p>
+          <p className="font-bold text-backgroundYellow leading-[32px]">Contact</p>
         </div>
       </nav>
 
