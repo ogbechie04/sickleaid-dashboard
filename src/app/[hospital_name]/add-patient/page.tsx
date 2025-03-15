@@ -14,7 +14,7 @@ const AddPatient = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    // formState: { errors },
   } = useForm<patientFormData>({
     resolver: zodResolver(patientSchema),
     mode: "onSubmit",

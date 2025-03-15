@@ -13,10 +13,10 @@ const TwoFactorAuth = () => {
 
   const {
     control,
-    register,
+    // register,
     handleSubmit,
     setValue,
-    watch,
+    // watch,
     formState: { errors },
   } = useForm<twoFactorAuthentificationFormData>({
     resolver: zodResolver(twoFactorAuthentificationSchema),
