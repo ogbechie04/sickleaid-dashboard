@@ -78,7 +78,7 @@ const SwitchToggle: React.FC<SwitchToggleProps> = ({
   mainDivClass,
 }) => {
   return (
-    <div className={`flex flex-col gap-4 w-fit ${mainDivClass}`}>
+    <div className={`flex flex-col gap-3 w-fit ${mainDivClass}`}>
       <p className="font-bold text-xl">{label}</p>
       <div className="w-fit">
         <MainSwitch id={id} checked={checked} onChange={onChange} />
