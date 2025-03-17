@@ -1,15 +1,17 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   twoFactorAuthentificationFormData,
   twoFactorAuthentificationSchema,
 } from "@features/auth/passwordResetSchema";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import SwitchToggle from "@components/SwitchToggle";
 
 const TwoFactorAuth = () => {
   const inputRefs = useRef<(HTMLInputElement | null)[]>(Array(12).fill(null));
+  const [isTwoFactorAuthEnabled, setIsTwoFactorAuthEnabled] = useState(true);
 
   const {
     control,
@@ -42,6 +44,7 @@ const TwoFactorAuth = () => {
     index: number,
     isConfirmPin: boolean = false
   ) => {
+    if (!isTwoFactorAuthEnabled) return;
     const { value } = e.target;
     if (!/^\d?$/.test(value)) return;
     const fieldName = isConfirmPin
@@ -62,6 +65,7 @@ const TwoFactorAuth = () => {
     index: number,
     isConfirmPin: boolean = false
   ) => {
+    if (!isTwoFactorAuthEnabled) return;
     if (e.key === "Backspace" || e.key === "Delete") {
       const fieldName = isConfirmPin
         ? `confirmPin${index + 1}`
@@ -77,13 +81,17 @@ const TwoFactorAuth = () => {
     }
   };
 
+  const toggleTwoFactorAuth = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsTwoFactorAuthEnabled(event?.target.checked);
+  };
+
   const onSubmit = (data: twoFactorAuthentificationFormData) => {
     console.log("Submitted 2FA Data:", data);
   };
 
   return (
     <form
-      className="flex justify-between gap-2"
+      className="w-full flex justify-between gap-2"
       onSubmit={handleSubmit(onSubmit)}
     >
       {/* -------- main 2fa code -------- */}
@@ -161,6 +169,16 @@ const TwoFactorAuth = () => {
       >
         Verify
       </button> */}
+      {/* -------- turn off button for 2fa -------- */}
+      <div>
+        <SwitchToggle
+          label={"Turn off Two-factor authentication code"}
+          id={"twoFactorAuthSwitch"}
+          mainDivClass="items-center"
+          checked={isTwoFactorAuthEnabled}
+          onChange={toggleTwoFactorAuth}
+        />
+      </div>
     </form>
   );
 };
