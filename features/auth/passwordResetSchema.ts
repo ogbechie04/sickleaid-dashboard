@@ -55,7 +55,7 @@ export const twoFactorAuthentificationSchema = z
     },
     {
       message: "Re-enter the pin correctly",
-      path: ["fullpin"],
+      path: ["confirmPin1"],
     }
   );
 
