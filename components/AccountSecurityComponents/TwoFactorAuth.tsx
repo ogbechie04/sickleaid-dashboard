@@ -155,12 +155,12 @@ const TwoFactorAuth = () => {
           )}
         </div>
       </div>
-      <button
+      {/* <button
         type="submit"
         className="bg-primaryGreen text-white py-2 px-4 rounded-lg mt-4"
       >
         Verify
-      </button>
+      </button> */}
     </form>
   );
 };
