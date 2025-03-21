@@ -40,7 +40,7 @@ const Sidebar = () => {
         {/* -------- notification -------- */}
         <div
           className="flex items-center justify-start px-5 py-2.5 border-y border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]"
-          onClick={() => router.push("/")}
+          onClick={() => router.push("/[hospital_name]/notification")}
         >
           <Image
             src={"/icons/bell-icon.svg"}
