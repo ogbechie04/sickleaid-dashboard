@@ -45,7 +45,7 @@ const AddPatient = () => {
           <form
             action=""
             id="add-patient"
-            className="grid grid-cols-2 gap-y-10 gap-x-20"
+            className="grid grid-cols-2 gap-y-10 gap-x-20 flex-1"
             onSubmit={handleSubmit(submitData)}
           >
             {/* -------- patient full name -------- */}
@@ -53,13 +53,13 @@ const AddPatient = () => {
               <input
                 type="text"
                 id="full-name"
-                className="w-full rounded-[1.25rem] pl-[8.8125rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-2xl"
+                className="w-full rounded-[1.25rem] pl-[6.375rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-normal"
                 placeholder="Full name"
                 {...register("fullName")}
               />
               <label
                 htmlFor="full-name"
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-2xl"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-normal"
               >
                 Full name:
               </label>
@@ -69,13 +69,13 @@ const AddPatient = () => {
               <input
                 type="text"
                 id="gender"
-                className="w-full rounded-[1.25rem] pl-[7.25rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-2xl"
+                className="w-full rounded-[1.25rem] pl-[5.25rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-normal"
                 placeholder="gender"
                 {...register("gender")}
               />
               <label
                 htmlFor="gender"
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-2xl"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-normal"
               >
                 Gender:
               </label>
@@ -85,13 +85,13 @@ const AddPatient = () => {
               <input
                 type="text"
                 id="contact"
-                className="w-full rounded-[1.25rem] pl-[7.75rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-2xl"
+                className="w-full rounded-[1.25rem] pl-[5.625rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-normal"
                 placeholder="Contact"
                 {...register("contact")}
               />
               <label
                 htmlFor="contact"
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-2xl"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-normal"
               >
                 Contact:
               </label>
@@ -101,13 +101,13 @@ const AddPatient = () => {
               <input
                 type="text"
                 id="address"
-                className="w-full rounded-[1.25rem] pl-[8rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-2xl"
+                className="w-full rounded-[1.25rem] pl-[5.75rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-normal"
                 placeholder="address"
                 {...register("address")}
               />
               <label
                 htmlFor="address"
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-2xl"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-normal"
               >
                 Address:
               </label>
@@ -117,13 +117,13 @@ const AddPatient = () => {
               <input
                 type="text"
                 id="state"
-                className="w-full rounded-[1.25rem] pl-[5.75rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-2xl"
+                className="w-full rounded-[1.25rem] pl-[4.25rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-normal"
                 placeholder="state"
                 {...register("state")}
               />
               <label
                 htmlFor="state"
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-2xl"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-normal"
               >
                 State:
               </label>
@@ -133,13 +133,13 @@ const AddPatient = () => {
               <input
                 type="text"
                 id="pateint-id"
-                className="w-full rounded-[1.25rem] pl-[8.875rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-2xl"
+                className="w-full rounded-[1.25rem] pl-[6.375rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-normal"
                 placeholder="Patient ID"
                 {...register("id")}
               />
               <label
                 htmlFor="patient-id"
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-2xl"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-normal"
               >
                 Patient ID:
               </label>
@@ -149,13 +149,13 @@ const AddPatient = () => {
               <input
                 type="text"
                 id="blood-type"
-                className="w-full rounded-[1.25rem] pl-[9.6875rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-2xl"
+                className="w-full rounded-[1.25rem] pl-[6.875rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-normal"
                 placeholder="Blood type"
                 {...register("bloodType")}
               />
               <label
                 htmlFor="blood-type"
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-2xl"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-normal"
               >
                 Blood type:
               </label>
@@ -165,13 +165,13 @@ const AddPatient = () => {
               <input
                 type="text"
                 id="age"
-                className="w-full rounded-[1.25rem] pl-[4.75rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-2xl"
+                className="w-full rounded-[1.25rem] pl-[3.625rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-normal"
                 placeholder="Age"
                 {...register("age")}
               />
               <label
                 htmlFor="age"
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-2xl"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-normal"
               >
                 Age:
               </label>
@@ -181,13 +181,13 @@ const AddPatient = () => {
               <input
                 type="text"
                 id="allergies"
-                className="w-full rounded-[1.25rem] pl-[8.3125rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-2xl"
+                className="w-full rounded-[1.25rem] pl-[6rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-normal"
                 placeholder="Allergies"
                 {...register("allergies")}
               />
               <label
                 htmlFor="allergies"
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-2xl"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-normal"
               >
                 Allergies:
               </label>
@@ -197,13 +197,13 @@ const AddPatient = () => {
               <input
                 type="text"
                 id="weight"
-                className="w-full rounded-[1.25rem] pl-[7.0625rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-2xl"
+                className="w-full rounded-[1.25rem] pl-[5.1875rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-normal"
                 placeholder="weight"
                 {...register("weight")}
               />
               <label
                 htmlFor="weight"
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-2xl"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-normal"
               >
                 Weight:
               </label>
@@ -213,13 +213,13 @@ const AddPatient = () => {
               <input
                 type="text"
                 id="joined-date"
-                className="w-full rounded-[1.25rem] pl-[10.735rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-2xl"
+                className="w-full rounded-[1.25rem] pl-[7.4375rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-normal"
                 placeholder="Joined date"
                 {...register("joinedDate")}
               />
               <label
                 htmlFor="joined-date"
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-2xl"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-normal"
               >
                 Joined date:
               </label>
@@ -229,13 +229,13 @@ const AddPatient = () => {
               <input
                 type="text"
                 id="height"
-                className="w-full rounded-[1.25rem] pl-[6.6875rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-2xl"
+                className="w-full rounded-[1.25rem] pl-[4.9375rem] py-[1.5625rem] placeholder-transparent focus:outline-none shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] text-black font-medium text-normal"
                 placeholder="Height"
                 {...register("height")}
               />
               <label
                 htmlFor="height"
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-2xl"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-bold text-normal"
               >
                 Height:
               </label>
@@ -249,7 +249,7 @@ const AddPatient = () => {
         {/* -------- save form button -------- */}
         <button
           form="add-patient"
-          className="self-end text-2xl font-bold text-white bg-primaryGreen py-[1.5625rem] px-[4.375rem] rounded-[1.875rem] shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)]"
+          className="self-end text-normal font-bold text-white bg-primaryGreen py-[1.5625rem] px-[4.375rem] rounded-[1.875rem] shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)]"
         >
           Save
         </button>

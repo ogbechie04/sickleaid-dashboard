@@ -21,15 +21,21 @@ const Settings = () => {
           Account Security
         </button>
         {/* -------- notification settings button -------- */}
-        <button className="text-2xl font-normal text-black bg-white p-2.5 rounded-md shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] w-[17.1875rem]">
+        <button className="text-2xl font-normal text-black bg-white p-2.5 rounded-md shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] w-[17.1875rem]" onClick={() =>
+            router.push("/[hospital_name]/settings/notification-settings")
+          }>
           Notification Settings
         </button>
         {/* -------- language preferences button -------- */}
-        <button className="text-2xl font-normal text-black bg-white p-2.5 rounded-md shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] w-[17.1875rem]">
+        <button className="text-2xl font-normal text-black bg-white p-2.5 rounded-md shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] w-[17.1875rem]" onClick={() =>
+            router.push("/[hospital_name]/settings/language-preferences")
+          }>
           Language Preferences
         </button>
         {/* -------- resource section button -------- */}
-        <button className="text-2xl font-normal text-black bg-white p-2.5 rounded-md shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] w-[17.1875rem]">
+        <button className="text-2xl font-normal text-black bg-white p-2.5 rounded-md shadow-[0_0_12.316px_0_rgba(0,0,0,0.25)] w-[17.1875rem]" onClick={() =>
+            router.push("/[hospital_name]/settings/resource-section")
+          }>
           Resource Section
         </button>
       </div>
