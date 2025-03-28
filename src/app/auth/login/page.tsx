@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import {
   loginSchema,
   loginFormData,
-} from "@features/auth/loginSchema";
+} from "@/features/auth/loginSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 

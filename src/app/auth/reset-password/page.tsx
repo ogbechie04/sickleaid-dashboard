@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import {
   forgotPasswordSchema,
   forgotPasswordFormData,
-} from "@features/auth/forgotPasswordSchema";
+} from "@/features/auth/forgotPasswordSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 

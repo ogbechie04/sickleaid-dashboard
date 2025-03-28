@@ -1,4 +1,4 @@
-import Sidebar from '@components/Sidebar'
+import Sidebar from '@/components/Sidebar'
 import React from 'react'
 
 const HospitalLayout = ({children}: {children: React.ReactNode}) => {

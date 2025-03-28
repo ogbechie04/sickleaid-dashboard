@@ -4,10 +4,10 @@ import React, { useRef, useState } from "react";
 import {
   twoFactorAuthentificationFormData,
   twoFactorAuthentificationSchema,
-} from "@features/auth/passwordResetSchema";
+} from "@/features/auth/passwordResetSchema";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import SwitchToggle from "@components/SwitchToggle";
+import SwitchToggle from "@/components/SwitchToggle";
 
 const TwoFactorAuth = () => {
   const inputRefs = useRef<(HTMLInputElement | null)[]>(Array(12).fill(null));
