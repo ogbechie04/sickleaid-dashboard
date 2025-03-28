@@ -6,10 +6,10 @@ import { useRouter } from "next/navigation";
 import {
   passwordResetFormData,
   passwordResetSchema,
-} from "@features/auth/passwordResetSchema";
+} from "@/features/auth/passwordResetSchema";
 import { useForm, } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import TwoFactorAuth from "@components/AccountSecurityComponents/TwoFactorAuth";
+import TwoFactorAuth from "@/components/AccountSecurityComponents/TwoFactorAuth";
 
 const AccountSecurity = () => {
   const router = useRouter();

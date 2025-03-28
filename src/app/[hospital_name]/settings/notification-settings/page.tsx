@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { FiChevronLeft } from "react-icons/fi";
-import SwitchToggle from "@components/SwitchToggle";
+import SwitchToggle from "@/components/SwitchToggle";
 
 const NotificationSettings = () => {
   const [isSosAlertEnabled, setIsSosAlertEnabled] = useState(true);

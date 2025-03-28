@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { FiEye, FiEyeOff, FiAlertCircle } from "react-icons/fi";
 import { useRouter } from "next/navigation";
-import { signUpSchema, signUpFormData } from "@features/auth/signUpSchema";
+import { signUpSchema, signUpFormData } from "@/features/auth/signUpSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 

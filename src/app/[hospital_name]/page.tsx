@@ -1,8 +1,8 @@
 "use client"
 
-import CustomCalendar from "@components/DashboardComponents/CustomCalendar";
-import HospitalAppointments from "@components/DashboardComponents/HospitalAppointments";
-import Reports from "@components/DashboardComponents/Reports";
+import CustomCalendar from "@/components/DashboardComponents/CustomCalendar";
+import HospitalAppointments from "@/components/DashboardComponents/HospitalAppointments";
+import Reports from "@/components/DashboardComponents/Reports";
 import Image from "next/image";
 import React from "react";
 import { useRouter } from "next/navigation";
