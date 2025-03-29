@@ -327,7 +327,7 @@ const AddPatient = () => {
                 htmlFor="patient-weight"
                 className="text-[#332EOE] font-bold text-base"
               >
-                Weight
+                Weight(kg)
               </label>
               <div className="w-full relative flex items-center">
                 <input
@@ -387,7 +387,7 @@ const AddPatient = () => {
                 htmlFor="patient-height"
                 className="text-[#332EOE] font-bold text-base"
               >
-                Height
+                Height(ft in)
               </label>
               <div className="w-full relative flex items-center">
                 <input
