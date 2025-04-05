@@ -2,10 +2,17 @@
 
 import Image from "next/image";
 import React from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const Sidebar = () => {
   const router = useRouter();
+  const pathname = usePathname();
+
+  const isHome = /^\/[^/]+$/.test(pathname);
+  const isNotification = pathname.includes("/notification");
+  const isSettings = pathname.includes("/settings");
+  const isRecord = pathname.includes("/record");
+  const isContact = pathname.includes("/contact");
 
   return (
     <div className="w-full min-h-screen max-w-[10.125rem] flex flex-col bg-primaryGreen rounded-tr-[1.25rem] rounded-br-[1.25rem] gap-1 font-Inter">
@@ -25,7 +32,9 @@ const Sidebar = () => {
       <nav className="flex flex-col w-full">
         {/* -------- home -------- */}
         <div
-          className="flex items-center justify-start px-5 py-2.5 border-y border-t-2 border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]"
+          className={`flex items-center justify-start px-5 py-2.5 border-y border-t-2 ${
+            isHome ? "bg-[#005C26]" : ""
+          } border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]`}
           onClick={() => router.push("/[hospital_name]")}
         >
           <Image
@@ -35,11 +44,15 @@ const Sidebar = () => {
             height={15}
             layout="intrinsic"
           />
-          <p className="font-bold text-backgroundYellow leading-[32px]">Home</p>
+          <p className={`font-bold text-backgroundYellow leading-[32px]`}>
+            Home
+          </p>
         </div>
         {/* -------- notification -------- */}
         <div
-          className="flex items-center justify-start px-5 py-2.5 border-y border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]"
+          className={`flex items-center justify-start px-5 py-2.5 border-y border-t-2 ${
+            isNotification ? "bg-[#005C26]" : ""
+          } border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]`}
           onClick={() => router.push("/[hospital_name]/notification")}
         >
           <Image
@@ -49,11 +62,15 @@ const Sidebar = () => {
             height={15}
             layout="intrinsic"
           />
-          <p className="font-bold text-backgroundYellow leading-[32px]">Notification</p>
+          <p className="font-bold text-backgroundYellow leading-[32px]">
+            Notification
+          </p>
         </div>
         {/* -------- settings -------- */}
         <div
-          className="flex items-center justify-start px-5 py-2.5 border-y border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]"
+          className={`flex items-center justify-start px-5 py-2.5 border-y border-t-2 ${
+            isSettings ? "bg-[#005C26]" : ""
+          } border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]`}
           onClick={() => router.push("/[hospital_name]/settings")}
         >
           <Image
@@ -63,12 +80,16 @@ const Sidebar = () => {
             height={15}
             layout="intrinsic"
           />
-          <p className="font-bold text-backgroundYellow leading-[32px]">Settings</p>
+          <p className="font-bold text-backgroundYellow leading-[32px]">
+            Settings
+          </p>
         </div>
         {/* -------- record -------- */}
         <div
-          className="flex items-center justify-start px-5 py-2.5 border-y border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]"
-          onClick={() => router.push("/")}
+          className={`flex items-center justify-start px-5 py-2.5 border-y border-t-2 ${
+            isRecord ? "bg-[#005C26]" : ""
+          } border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]`}
+          onClick={() => router.push("/[hospital_name]/record")}
         >
           <Image
             src={"/icons/record-icon.svg"}
@@ -77,12 +98,16 @@ const Sidebar = () => {
             height={15}
             layout="intrinsic"
           />
-          <p className="font-bold text-backgroundYellow leading-[32px]">Record</p>
+          <p className="font-bold text-backgroundYellow leading-[32px]">
+            Record
+          </p>
         </div>
         {/* -------- contact -------- */}
         <div
-          className="flex items-center justify-start px-5 py-2.5 border-y border-b-2 border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]"
-          onClick={() => router.push("/")}
+          className={`flex items-center justify-start px-5 py-2.5 border-y border-t-2 ${
+            isContact ? "bg-[#005C26]" : ""
+          } border-backgroundYellow gap-2.5 cursor-pointer hover:bg-[#005C26]`}
+          onClick={() => router.push("/[hospital_name]/contact")}
         >
           <Image
             src={"/icons/call-icon.svg"}
@@ -91,7 +116,9 @@ const Sidebar = () => {
             height={15}
             layout="intrinsic"
           />
-          <p className="font-bold text-backgroundYellow leading-[32px]">Contact</p>
+          <p className="font-bold text-backgroundYellow leading-[32px]">
+            Contact
+          </p>
         </div>
       </nav>
 
