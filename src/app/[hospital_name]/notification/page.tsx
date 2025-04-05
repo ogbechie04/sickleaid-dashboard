@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 const Notification = () => {
-//   const router = useRouter();
+  const router = useRouter();
   const testNotification = [
     {
       avatar: "/images/joy-martins.svg",
@@ -75,7 +75,13 @@ const Notification = () => {
           </thead>
           <tbody className=" gap-[3.125rem]">
             {testNotification.map((notification, index) => (
-              <tr key={index} className="text-center overflow-hidden text-xl font-semibold border rounded-[35px] shadow-[0px_4px_12px_rgba(0,0,0,0.15)]">
+              <tr
+                key={index}
+                className="text-center overflow-hidden text-xl font-semibold border rounded-[35px] shadow-[0px_4px_12px_rgba(0,0,0,0.15)] cursor-pointer"
+                onClick={() =>
+                  router.push("/[hospital_name]/notification/client-profile")
+                }
+              >
                 {/* <td className="">
                   <Image
                     src={notification.avatar}
@@ -94,13 +100,9 @@ const Notification = () => {
                 </td>
                 <td className="">{notification.name}</td>
                 <td className="">{notification.gender}</td>
-                <td className="">
-                  {notification.patientId}
-                </td>
+                <td className="">{notification.patientId}</td>
                 <td className="">{notification.date}</td>
-                <td className="">
-                  {notification.time}
-                </td>
+                <td className="">{notification.time}</td>
                 {/* <td className="border-y border-r border-black rounded-r-[30px]">
                   {notification.time}
                 </td> */}
