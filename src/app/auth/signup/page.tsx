@@ -8,6 +8,8 @@ import { signUpSchema, signUpFormData } from "@/features/auth/signUpSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { API_BASE_URL } from "../../../../config/api";
+
 const SignUp: React.FC = () => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
@@ -31,9 +33,33 @@ const SignUp: React.FC = () => {
     mode: "onSubmit",
   });
 
-  const submitData = (data: signUpFormData) => {
-    console.log("submitted data:", data);
-    router.push("/[hospital_name]");
+  const submitData = async (
+    data: signUpFormData & { hospitalConfirmPassword?: string }
+  ) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/hospital/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          hospitalName: data.hospitalName,
+          hospitalEmail: data.hospitalEmail,
+          hospitalPassword: data.hospitalPassword,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Signup failed");
+      }
+
+
+      const result = await response.json();
+      console.log(result);
+      router.push("/login");
+    } catch (error) {
+      console.error("Signup error:", error);
+    }
   };
 
   return (
