@@ -5,7 +5,7 @@ export default function WebhookRealtime() {
   const [events, setEvents] = useState<any[]>([]);
 
   useEffect(() => {
-    const evtSource = new EventSource("/api/webhook"); // GET hits SSE endpoint
+    const evtSource = new EventSource("/api/webhook"); 
 
     evtSource.onmessage = (e) => {
       if (e.data !== "ping") {
