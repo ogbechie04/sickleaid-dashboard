@@ -25,7 +25,6 @@ export default function Notification() {
   const router = useRouter();
   const [notifications, setNotifications] = useState<WebhookEvent[]>([]);
   const [popup, setPopup] = useState<WebhookEvent | null>(null);
-  const [selectedNotification, setSelectedNotification] = useState<WebhookEvent | null>(null);
 
   useEffect(() => {
     const evtSource = new EventSource(
