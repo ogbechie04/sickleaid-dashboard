@@ -22,7 +22,7 @@ export default function WebhookRealtime() {
   useEffect(() => {
     // 👇 Point directly to your backend SSE endpoint
     const evtSource = new EventSource(
-      "https://sickle-aid-backend.onrender.com/webhook-stream"
+      "https://sickle-aid-backend.onrender.com/api/auth/webhook-stream"
     );
 
     evtSource.onmessage = (e) => {
