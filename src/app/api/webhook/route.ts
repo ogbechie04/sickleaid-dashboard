@@ -1,7 +1,8 @@
-// app/api/webhook/route.ts
 import { NextResponse } from "next/server";
 
-let clients: any[] = []; // connected frontend clients
+type SSEClient = { write: (msg: string) => void };
+
+let clients: SSEClient[] = [];
 
 export async function POST(req: Request) {
   try {
@@ -17,12 +18,13 @@ export async function POST(req: Request) {
     }).catch(err => console.error("Forwarding error:", err));
 
     // 2. Notify all connected SSE clients
-    clients.forEach((res) => res.write(`data: ${JSON.stringify(body)}\n\n`));
+    clients.forEach((client) => client.write(JSON.stringify(body)));
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Webhook relay error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    const message = error instanceof Error ? error.message : "Unknown error";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
 
@@ -31,7 +33,8 @@ export async function GET() {
   const stream = new ReadableStream({
     start(controller) {
       const encoder = new TextEncoder();
-      const send = (msg: string) => controller.enqueue(encoder.encode(`data: ${msg}\n\n`));
+      const send = (msg: string) =>
+        controller.enqueue(encoder.encode(`data: ${msg}\n\n`));
 
       // Store connection
       clients.push({ write: send });
