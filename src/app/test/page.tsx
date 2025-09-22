@@ -13,22 +13,31 @@ type WebhookEvent = {
   allergies: string;
   weight: string;
   height: string;
-  patientId?: string
+  patientId?: string;
 };
 
 export default function WebhookRealtime() {
   const [events, setEvents] = useState<WebhookEvent[]>([]);
 
-  //test
-
   useEffect(() => {
-    const evtSource = new EventSource("/api/webhook");
+    // 👇 Point directly to your backend SSE endpoint
+    const evtSource = new EventSource(
+      "https://sickle-aid-backend.onrender.com/webhook-stream"
+    );
 
     evtSource.onmessage = (e) => {
       if (e.data !== "ping") {
-        const payload: WebhookEvent = JSON.parse(e.data);
-        setEvents((prev) => [payload, ...prev]);
+        try {
+          const payload: WebhookEvent = JSON.parse(e.data);
+          setEvents((prev) => [payload, ...prev]);
+        } catch (err) {
+          console.error("Invalid SSE payload:", e.data, err);
+        }
       }
+    };
+
+    evtSource.onerror = (err) => {
+      console.error("SSE connection error:", err);
     };
 
     return () => {
@@ -37,13 +46,22 @@ export default function WebhookRealtime() {
   }, []);
 
   return (
-    <div>
-      <h2 className="font-bold">Realtime Webhook Events</h2>
-      <ul>
-        {events.map((e, i) => (
-          <li key={i}>{JSON.stringify(e)}</li>
-        ))}
-      </ul>
+    <div className="p-4">
+      <h2 className="font-bold text-lg mb-2">Realtime Webhook Events</h2>
+      {events.length === 0 ? (
+        <p className="text-gray-500">No events yet...</p>
+      ) : (
+        <ul className="space-y-2">
+          {events.map((e, i) => (
+            <li
+              key={i}
+              className="rounded-md border p-2 text-sm font-mono bg-gray-50"
+            >
+              {JSON.stringify(e)}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
