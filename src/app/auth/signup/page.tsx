@@ -8,7 +8,6 @@ import { signUpSchema, signUpFormData } from "@/features/auth/signUpSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { API_BASE_URL } from "../../../../config/api";
 
 const SignUp: React.FC = () => {
   const router = useRouter();
@@ -37,7 +36,7 @@ const SignUp: React.FC = () => {
     data: signUpFormData & { hospitalConfirmPassword?: string }
   ) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/hospital/login`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/hospital/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import { loginSchema, loginFormData } from "@/features/auth/loginSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { API_BASE_URL } from "../../../../config/api";
 
 const Login: React.FC = () => {
   const router = useRouter();
@@ -28,7 +27,7 @@ const Login: React.FC = () => {
 
   const submitData = async (data: loginFormData) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/hospital/signin`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/hospital/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

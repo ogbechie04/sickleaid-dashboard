@@ -12,7 +12,6 @@ import CalendarComponent from "@/components/CalendarComponent";
 import nigeriaStates from "@/constants/nigeriaStates";
 import bloodType from "@/constants/bloodType";
 import gender from "@/constants/gender";
-import { API_BASE_URL } from "../../../../config/api";
 
 const AddPatient = () => {
   const router = useRouter();
@@ -29,7 +28,7 @@ const AddPatient = () => {
 
   const submitData = async (data: patientFormData) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/add-patient`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/add-patient`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
