@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import CustomCalendar from "@/components/DashboardComponents/CustomCalendar";
 import HospitalAppointments from "@/components/DashboardComponents/HospitalAppointments";
@@ -37,20 +37,23 @@ const HospitalDashboard = () => {
         </div>
         {/* -------- patients table/hospital appointments -------- */}
         <div className="mt-[4.125rem] w-full">
-          <HospitalAppointments/>
+          <HospitalAppointments />
         </div>
       </div>
       {/* -------- right half -------- */}
       <div className="flex flex-col gap-[2.9375rem] items-center w-full">
         {/* -------- add patient button -------- */}
-        <button className="flex items-center justify-center px-5 py-2.5 bg-primaryGreen rounded-[0.625rem] text-xl font-semibold text-white w-fit" onClick={() => router.push("/[hospital_name]/add-patient")}>
+        <button
+          className="flex items-center justify-center px-5 py-2.5 bg-primaryGreen rounded-[0.625rem] text-xl font-semibold text-white w-fit"
+          onClick={() =>
+            router.push(`/${localStorage.getItem("hospital-name")}/add-patient`)
+          }
+        >
           + Add patient
         </button>
         {/* -------- schedule calendar -------- */}
         <div className="flex flex-col items-start gap-4">
-          <p className="text-black text-lg font-semibold">
-            Schedule Calendar
-          </p>
+          <p className="text-black text-lg font-semibold">Schedule Calendar</p>
           {/* -------- custom calendar -------- */}
           <div className="w-full">
             <CustomCalendar />

@@ -8,13 +8,13 @@ export const signUpSchema = z
       .string()
       .min(6, "Password must be at least 6 characters"),
     hospitalConfirmPassword: z
-      .string()
-      .min(6, "Password must be at least 6 characters"),
+      .string() 
+      .min(6, "Password must be at least 6 characters"),  
   })
   .refine((data) => data.hospitalPassword === data.hospitalConfirmPassword, {
     message: "Re-enter the password correctly",
     path: ["hospitalConfirmPassword"],
-  })
+  });
 //   .transform(({ hospitalConfirmPassword, ...rest }) => rest);
 
 export type signUpFormData = z.infer<typeof signUpSchema>;

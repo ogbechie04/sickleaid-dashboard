@@ -12,6 +12,7 @@ import CalendarComponent from "@/components/CalendarComponent";
 import nigeriaStates from "@/constants/nigeriaStates";
 import bloodType from "@/constants/bloodType";
 import gender from "@/constants/gender";
+import { API_BASE_URL } from "../../../../config/api";
 
 const AddPatient = () => {
   const router = useRouter();
@@ -26,9 +27,42 @@ const AddPatient = () => {
     mode: "onSubmit",
   });
 
-  const submitData = (data: patientFormData) => {
-    console.log("submitted data:", data);
-    router.push("/[hospital_name]");
+  const submitData = async (data: patientFormData) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/add-patient`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("auth")}`,
+        },
+        body: JSON.stringify({
+          fullName: data.fullName,
+          gender: data.gender,
+          contact: data.contact,
+          address: data.address,
+          state: data.state,
+          patientId: data.id,
+          bloodType: data.bloodType,
+          age: data.age,
+          allergies: data.allergies,
+          weight: data.weight,
+          joinedDate: data.joinedDate,
+          height: data.height,
+          userId: localStorage.getItem("hospital-id"),
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to add patient");
+      }
+
+      const result = await response.json();
+      console.log("Patient added successfully:", result);
+      router.push(`/${localStorage.getItem("hospital-name")}`);
+    } catch (error) {
+      console.error("Error adding patient:", error);
+    }
   };
 
   return (
